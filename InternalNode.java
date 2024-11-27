@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class InternalNode extends Node {
     private Node[] children;
 
