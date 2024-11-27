@@ -6,7 +6,15 @@ public class LeafNode extends Node {
 
     public LeafNode(double x, double y, double width, double height) {
         super(x, y, width, height);
-        this.rectangles = new ArrayList<>();
+        rectangles = new ArrayList<>();
+    }
+
+    public int getRectangleCount() {
+        return rectangles.size();
+    }
+
+    public List<Rectangle> getRectangles() {
+        return new ArrayList<>(rectangles);
     }
 
     @Override
@@ -22,4 +30,3 @@ public class LeafNode extends Node {
         }
     }
 }
-
