@@ -1,20 +1,17 @@
+import java.awt.geom.Rectangle2D;
+
 public class Main {
     public static void main(String[] args) {
-        // Define the boundary for the QuadTree
-        RectangleWithId = new RectangleWithId(0, 0, 100, 100, "Boundary");
+        // Create a Rectangle2D.Double object (x, y, width, height)
+        Rectangle2D.Double rect = new Rectangle2D.Double(10.5, 20.5, 30.5, 40.5);
 
-        // Create the QuadTree with the defined boundary (which is a RectangleWithId)
-        QuadTree quadTree = new QuadTree(new java.awt.geom.Rectangle2D.Double(0, 0, 100, 100));
+        // Create a QuadTree with bounds as a Rectangle2D.Double (x, y, width, height)
+        QuadTree quadTree = new QuadTree(new Rectangle2D.Double(0, 0, 100, 100));
 
-        // Insert some rectangles with IDs
-        quadTree.insert(new RectangleWithId(10.5, 20.5, 30.5, 40.5, "ID1"));
-        quadTree.insert(new RectangleWithId(30.0, 30.0, 25.0, 25.0, "ID2"));
-        quadTree.insert(new RectangleWithId(50.0, 50.0, 15.0, 15.0, "ID3"));
-        quadTree.insert(new RectangleWithId(70.0, 70.0, 10.0, 10.0, "ID4"));
-        quadTree.insert(new RectangleWithId(20.0, 20.0, 30.0, 30.0, "ID5"));
+        // Insert the rectangle into the QuadTree
+        quadTree.insert(rect);
 
-        // Print the contents of the QuadTree
+        // Dump the QuadTree contents to check the insertion
         quadTree.dump();
     }
 }
-

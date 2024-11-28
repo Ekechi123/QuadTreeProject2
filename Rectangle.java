@@ -26,4 +26,9 @@ public class Rectangle {
     public int getHeight() {
         return height;
     }
+
+    @Override
+    public String toString() {
+        return "Rectangle: " + x + ", " + y + ", " + width + "x" + height;
+    }
 }

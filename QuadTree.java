@@ -1,71 +1,24 @@
 import java.awt.geom.Rectangle2D;
-import java.util.ArrayList;
-import java.util.List;
 
 public class QuadTree {
-    private static final int MAX_CAPACITY = 4;
-    private Rectangle2D.Double boundary;
-    private List<Rectangle2D.Double> objects;
-    private boolean divided;
-    private QuadTree northeast, northwest, southeast, southwest;
+    private Rectangle2D.Double bounds;
 
-    // Constructor
-    public QuadTree(Rectangle2D.Double boundary) {
-        this.boundary = boundary;
-        this.objects = new ArrayList<>();
-        this.divided = false;
+    // Constructor: We are using Rectangle2D.Double to represent the bounds of the QuadTree
+    public QuadTree(Rectangle2D.Double bounds) {
+        this.bounds = bounds;
     }
 
-    // Insert a rectangle into the QuadTree
-    public boolean insert(Rectangle2D.Double rect) {
-        if (!boundary.intersects(rect)) {
-            return false; // Ignore objects outside the boundary
-        }
-
-        if (objects.size() < MAX_CAPACITY) {
-            objects.add(rect);
-            return true;
-        }
-
-        if (!divided) {
-            subdivide();
-        }
-
-        // Recursively insert into the appropriate quadrant
-        return (northeast.insert(rect) || northwest.insert(rect) ||
-                southeast.insert(rect) || southwest.insert(rect));
+    // Insert method for adding a rectangle to the QuadTree (currently just prints for now)
+    public void insert(Rectangle2D.Double rect) {
+        // Example logic for inserting the rectangle (just printing for now)
+        System.out.println("Inserting rectangle at: " + rect);
     }
 
-    // Subdivide the current QuadTree into four quadrants
-    private void subdivide() {
-        double x = boundary.x;
-        double y = boundary.y;
-        double w = boundary.width / 2;
-        double h = boundary.height / 2;
-
-        northeast = new QuadTree(new Rectangle2D.Double(x + w, y, w, h));
-        northwest = new QuadTree(new Rectangle2D.Double(x, y, w, h));
-        southeast = new QuadTree(new Rectangle2D.Double(x + w, y + h, w, h));
-        southwest = new QuadTree(new Rectangle2D.Double(x, y + h, w, h));
-        divided = true;
-    }
-
-    // Dump the contents of the QuadTree
+    // Method to dump the QuadTree bounds (for testing purposes)
     public void dump() {
-        System.out.println("Objects in this QuadTree:");
-        for (Rectangle2D.Double rect : objects) {
-            System.out.println("Rectangle: " + rect);
-        }
-
-        if (divided) {
-            System.out.println("Northeast:");
-            northeast.dump();
-            System.out.println("Northwest:");
-            northwest.dump();
-            System.out.println("Southeast:");
-            southeast.dump();
-            System.out.println("Southwest:");
-            southwest.dump();
-        }
+        System.out.println("QuadTree bounds: " + bounds);
     }
+
+    // Additional methods for QuadTree as needed
 }
+
