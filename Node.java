@@ -11,4 +11,3 @@ public abstract class Node {
     public abstract void insert(Rectangle rectangle);
     public abstract void dump(String indent);
 }
-

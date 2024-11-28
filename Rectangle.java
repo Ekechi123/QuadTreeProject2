@@ -1,32 +1,29 @@
 public class Rectangle {
-    private double x, y, width, height;
+    private int x;
+    private int y;
+    private int width;
+    private int height;
 
-    public Rectangle(double x, double y, double width, double height) {
+    public Rectangle(int x, int y, int width, int height) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
     }
 
-    public double getX() {
+    public int getX() {
         return x;
     }
 
-    public double getY() {
+    public int getY() {
         return y;
     }
 
-    public double getWidth() {
+    public int getWidth() {
         return width;
     }
 
-    public double getHeight() {
+    public int getHeight() {
         return height;
     }
-
-    @Override
-    public String toString() {
-        return "Rectangle at (" + x + ", " + y + "): " + width + "x" + height;
-    }
 }
-
